@@ -43,7 +43,7 @@
                     <td>{{number_format($pro->productPrice)}}</td>
                     <td>{{$pro->productDetails}}</td>
                     <td>
-                        <img src="{{'../../public/products-img/'. $p -> productImage}}" alt="" 
+                        <img src="{{'../../public/products-img/'. $pro -> productImage}}" alt="" 
                              height="120px" width="120px">                        
                     </td>
                     <td>{{$pro->catID}}</td>

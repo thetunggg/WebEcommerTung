@@ -36,7 +36,14 @@ class ProductController extends Controller
         $pro->productID = $request->id;
         $pro->productName = $request->name;
         $pro->productPrice = $request->price;
-        $pro->productImage = $request->image;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName(); 
+            $image->storeAs('images', $imageName, 'public');
+            $pro->productImage = $imageName;
+        } else {
+            $pro->productImage = null; 
+        }
         $pro->productDetails = $request->details;
         $pro->categoriesID = $request->category;
         $pro->save();

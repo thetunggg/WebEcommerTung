@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Product;
 use App\Models\Branch;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -39,11 +41,29 @@ class BranchController extends Controller
             $branch = Branch::get();
             return view ('admin\branch-edit', compact('branch'));
         }
+        // public function delete($id)
+        // {
+        //     Product::where('branch_branch_id', $id)->update(['branch_branch_id' => null]);
+        //     Branch ::where('branch_id', '=', $id) ->delete();
+        //     return redirect () ->back() ->with('success', 'Branch deleted successfully');
+        // }
+
         public function delete($id)
-        {
-            Branch ::where('branch_id', '=', $id) ->delete();
-            return redirect () ->back() ->with('success', 'Branch deleted successfully');
-        }
+{
+    // Kiểm tra xem có sản phẩm nào liên quan đến branch này hay không
+    $productCount = Product::where('branch_branch_id', $id)->count();
+
+    if ($productCount > 0) {
+        // Nếu có sản phẩm liên quan, không cho phép xóa
+        return redirect()->back()->with('error', 'Branch cannot be deleted because it is associated with products.');
+    }
+
+    // Nếu không có sản phẩm liên quan, tiến hành xóa branch
+    Branch::where('branch_id', $id)->delete();
+
+    return redirect()->back()->with('success', 'Branch deleted successfully');
+}
+
 
         public function update (Request $request) {
             Branch ::where('branch_id', '=', $request->id) -> update([

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Branch;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -27,8 +28,9 @@ class ProductController extends Controller
     public function add()
     {
         $categories = Category::get();
+        $branch = Branch::get();
         $pro = Product::get();
-        return view('admin.product-add', compact('categories', 'pro'));
+        return view('admin.product-add', compact('categories', 'pro','branch'));
     }
     public function save (Request $request)
     {
@@ -46,6 +48,7 @@ class ProductController extends Controller
         }
         $pro->productDetails = $request->details;
         $pro->categoriesID = $request->category;
+        $pro->branch_branch_id = $request->branch;
         $pro->save();
         return redirect()->back()->with('success', 'Product added successfully!');
     }
@@ -67,9 +70,10 @@ class ProductController extends Controller
         Product::where('productID', '=', $request->id) -> update([
         'productName' => $request-> name,
         'productPrice' => $request-> price,
-        'productImage' => $request-> image,
+        'productImage' => $request-> new_image,
         'productDetails' => $request-> details,
-        'categoriesID' => $request -> category
+        'categoriesID' => $request -> category,
+
         ]);
         return redirect()->back() -> with('success', 'Product Updated Successfully');
     }

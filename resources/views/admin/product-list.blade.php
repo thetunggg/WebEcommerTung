@@ -134,7 +134,8 @@
                     <th scope="col">Product Price</th>
                     <th scope="col">Product Details</th>
                     <th scope="col">Product Image</th>
-                    <th scope="col">Categories ID</th>
+                    <th scope="col">Categories </th>
+                    <th scope="col">Brand </th>
                     <th scope="col">Action</th>
                 </tr>
                 </thead>
@@ -151,6 +152,7 @@
                             height="120px" width="120px">
                     </td>
                         <td>{{$pro-> categoriesID}}</td>
+                        <td>{{$pro-> branch_branch_id}}</td>
                         <td>
                             <a href="{{url("product-edit?id={$pro-> productID}")}}" class="btn btn-info">Edit</a>
                             <a href="{{url("product-delete")}}\{{$pro-> productID}}" class="btn btn-danger">Delete</a>

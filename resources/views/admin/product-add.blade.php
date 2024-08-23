@@ -189,7 +189,17 @@
                         <option value="{{$cat->categoriesID}}">{{$cat->categoriesName}}</option>
                         @endforeach
                     </select>
+                    
                 </div>
+                <div class="mb-3">
+                  <label for="category">Brand:</label>
+                  <select name="branch" id="branch" class="form-control">
+                      @foreach ($branch as $cat)
+                      <option value="{{$cat->branch_id}}">{{$cat->branch_name}}</option>
+                      @endforeach
+                  </select>
+                  
+              </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <a href="{{url('product-list')}}" class="btn btn-success">Back</a>
 

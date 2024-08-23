@@ -79,6 +79,19 @@
                     @endforeach                    
                 </select>
             </div>
+            <div class="mb-3">
+                <label for="branch">Branch:</label>
+                <select name="branch" id="branch" class="form-control">
+                    @foreach ($branches as $branch)
+                    <option value="{{ $branch->branchID }}">{{ $branch->branchName }}</option>
+                    @endforeach
+                </select>
+                @error('branch')
+                <div class="alert alert-danger" role="alert">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             <a href="{{url('product-list')}}" class="btn btn-primary">Back</a>
         </form>

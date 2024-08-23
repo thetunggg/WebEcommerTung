@@ -54,3 +54,8 @@ Route::get('customer/register', [CustomerController::class, 'register'])->name('
 Route::post('customer/loginProcess', [CustomerController::class, 'loginProcess'] )->name('customer-loginprocess');
 Route::post('customer/processRegister',[CustomerController::class , 'processRegister']);
 Route::get('customer/logout', [CustomerController::class, 'login'] )->name('customer-logout');
+//Route::post('customer/logout', [CustomerController::class, 'logout'])->name('customer-logout');
+
+// Route::get('customer/logout', [CustomerController::class, 'logout'])->name('customer-logout');
+
+

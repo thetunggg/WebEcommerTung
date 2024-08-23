@@ -45,7 +45,7 @@ https://templatemo.com/tm-571-hexashop
 
 
     <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
+    {{-- <header class="header-area header-sticky">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -96,7 +96,122 @@ https://templatemo.com/tm-571-hexashop
                 </div>
             </div>
         </div>
+    </header> --}}
+
+    {{-- <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo">
+                            <img src="../customer/assets/images/williamt-logo.jpg" alt="Logo">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="#men">Men's</a></li>
+                            <li class="scroll-to-section"><a href="#women">Women's</a></li>
+                            <li class="scroll-to-section"><a href="#kids">Kid's</a></li>
+                            <li class="submenu">
+                                <a href="javascript:;">Pages</a>
+                                <ul>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="products.html">Products</a></li>
+                                    <li><a href="single-product.html">Single Product</a></li>
+                                    <li><a href="contact.html">Contact Us</a></li>
+                                </ul>
+                            </li>
+    
+                            <!-- Kiểm tra trạng thái đăng nhập -->
+                            @if(Session::has('customername'))
+                                <li class="submenu">
+                                    <a href="javascript:;">Account</a>
+                                    <ul>
+                                        <li><a href="{{ url('customer/product') }}">Product</a></li>
+                                        <li><a href="{{ url('customer/logout') }}">Logout</a></li> <!-- Nút Logout -->
+                                    </ul>
+                                </li>
+                                <img class="img-xs rounded-circle ml-2" src="../admin/assets/images/faces/{{ Session::get('adminPhoto') }}" alt="Profile image"> 
+                                <span class="font-weight-normal">{{ Session::get('customername') }}</span>
+                            @else
+                                <li class="submenu">
+                                    <a href="javascript:;">Account</a>
+                                    <ul>
+                                        <li><a href="{{ url('customer/login') }}">Login</a></li>
+                                        <li><a href="{{ url('customer/register') }}">Register</a></li>
+                                    </ul>
+                                </li>
+                            @endif
+    
+                            <li class="scroll-to-section"><a href="#explore">Explore</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header> --}}
+    
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo">
+                            <img src="../customer/assets/images/williamt-logo.jpg" alt="Logo">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="#men">Men's</a></li>
+                            <li class="scroll-to-section"><a href="#women">Women's</a></li>
+                            <li class="scroll-to-section"><a href="#kids">Kid's</a></li>
+                            <li class="submenu">
+                                <a href="javascript:;">Pages</a>
+                                <ul>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="products.html">Products</a></li>
+                                    <li><a href="single-product.html">Single Product</a></li>
+                                    <li><a href="contact.html">Contact Us</a></li>
+                                </ul>
+                            </li>
+                            <li class="submenu">
+                                <a href="javascript:;">Account</a>
+                                <ul>
+                                    <li><a href="{{url('customer/login')}}">Login</a></li>
+                                    <li><a href="{{url('customer/register')}}">Register</a></li>
+                                    <li><a href="{{url('customer/product')}}">Product</a></li>
+                                    <li><a href="{{url('customer/logout')}}">Logout</a></li> <!-- Nút Logout -->
+                                </ul>
+                            </li>
+                            <li class="scroll-to-section"><a href="#explore">Explore</a></li>
+                        </ul>
+                        <img class="img-xs rounded-circle ml-2" src="../admin/assets/images/faces/{{Session::get('adminPhoto')}}" alt="Profile image"> 
+                        <span class="font-weight-normal">{{Session::get('adminName')}}</span>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
     </header>
+    
+
+
+
+
+
+    
+    
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Main Banner Area Start ***** -->

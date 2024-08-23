@@ -54,6 +54,25 @@ class CustomerController extends Controller
                     return back()->with('fail', 'Something went wrong');
                 }
             }
+
+
+//             public function loginProcess(Request $request)
+// {
+//     $request->validate([
+//         'username' => 'required|email',
+//         'password' => 'required',
+//     ]);
+
+//     $cus = Customer::where('customerEmail', $request->username)->first();
+
+//     if ($cus && Hash::check($request->password, $cus->customerPassword)) {
+//         $request->session()->put('customername', $cus->CustomerName);
+//         return redirect('customer/index');
+//     }
+
+//     return back()->with('fail', $cus ? 'Password not match!' : 'User name is not existed!');
+// }
+
         
             public function loginProcess(Request $request)
             {
@@ -70,12 +89,28 @@ class CustomerController extends Controller
                 }
                 
             }
-            public function logout()
-            {
-                Session::pull('customername');
+            // public function logout()
+            // {
+            //     Session::pull('customername');
                 
-                return view('customer.login');
-            }
+            //     return view('customer.login');
+            // }
+
+
+//             public function logout()
+// {
+//     Session::flush(); // Xóa tất cả session để đảm bảo đăng xuất hoàn toàn
+    
+//     return redirect()->route('customer-login'); // Chuyển hướng về trang đăng nhập
+// }
+
+public function logout()
+{
+    Session::forget('customername');
+    return redirect()->route('customer-login'); // Hoặc đường dẫn đến trang đăng nhập
+}
+
+
             
             
         
